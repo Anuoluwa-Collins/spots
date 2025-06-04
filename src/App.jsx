@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import image1 from "./assets/image1.png";
-import image2 from "./assets/image2.png";
-import image3 from "./assets/image3.png";
-import image4 from "./assets/image4.png";
-import image5 from "./assets/image5.png";
-import image6 from "./assets/image6.png";
+import Image1 from "./assets/Image1.png";
+import Image2 from "./assets/Image2.png";
+import Image3 from "./assets/Image3.png";
+import Image4 from "./assets/Image4.png";
+import Image5 from "./assets/Image5.png";
+import Image6 from "./assets/Image6.png";
 import avatar from "./assets/avatar.png";
 import { Heart } from "lucide-react";
 
@@ -13,32 +13,32 @@ const SpotsGallery = () => {
   const [cardsData, setCardsData] = useState([
     {
       title: "Val Thorens",
-      image:  image1,
+      Image:  Image1,
       liked: false,
     },
     {
       title: "Restaurant terrace",
-      image:  image2 ,
+      Image:  Image2 ,
       liked: false,
     },
     {
       title: "An outdoor cafe",
-      image:  image3 ,
+      Image:  Image3 ,
       liked: false,
     },
     {
       title: "A very long bridge, over the forest...",
-      image: image4,
+      Image: Image4,
       liked: false,
     },
     {
       title: "Tunnel with morning light",
-      image:  image5 ,
+      Image:  Image5 ,
       liked: false,
     },
     {
       title: "Mountain house",
-      image:  image6,
+      Image:  Image6,
       liked: false,
     },
   ]);
@@ -48,7 +48,7 @@ const SpotsGallery = () => {
     name: "Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu Badara Akon...",
     description:
       "Known mononymously as Akon (/ˈeɪkɒn/), is a Senegalese-American singer, record producer, and entrepreneur. An influential figure in modern world...",
-    image:  avatar ,
+    Image:  avatar ,
   });
 
   
@@ -61,11 +61,11 @@ const SpotsGallery = () => {
   const [editForm, setEditForm] = useState({
     name: "",
     description: "",
-    image: null,
+    Image: null,
   });
   const [newPostForm, setNewPostForm] = useState({
     title: "",
-    image: null,
+    Image: null,
   });
 
   
@@ -88,13 +88,13 @@ const SpotsGallery = () => {
     setEditForm({
       name: profile.name,
       description: profile.description,
-      image: null,
+      Image: null,
     });
     setShowEditModal(true);
   };
 
   const openNewPostModal = () => {
-    setNewPostForm({ title: "", image: null });
+    setNewPostForm({ title: "", Image: null });
     setShowNewPostModal(true);
   };
 
@@ -109,9 +109,9 @@ const SpotsGallery = () => {
     const updatedProfile = {
       name: editForm.name.trim(),
       description: editForm.description.trim(),
-      image: editForm.image
-        ? URL.createObjectURL(editForm.image)
-        : profile.image,
+      Image: editForm.Image
+        ? URL.createObjectURL(editForm.Image)
+        : profile.Image,
     };
     setProfile(updatedProfile);
     setShowEditModal(false);
@@ -119,11 +119,11 @@ const SpotsGallery = () => {
 
 
   const handleNewPostSubmit = () => {
-    if (!newPostForm.image || newPostForm.title.trim().length < 2) return;
+    if (!newPostForm.Image || newPostForm.title.trim().length < 2) return;
 
     const newCard = {
       title: newPostForm.title.trim(),
-      image: URL.createObjectURL(newPostForm.image),
+      Image: URL.createObjectURL(newPostForm.Image),
       liked: false,
     };
     setCardsData((prev) => [newCard, ...prev]);
@@ -131,7 +131,7 @@ const SpotsGallery = () => {
   };
 
   const isNewPostValid =
-    newPostForm.title.trim().length >= 2 && newPostForm.image;
+    newPostForm.title.trim().length >= 2 && newPostForm.Image;
 
   // Modal component
   const Modal = ({ isOpen, onClose, children }) => {
@@ -170,7 +170,7 @@ const SpotsGallery = () => {
             <div className="flex justify-between items-start flex-wrap gap-5">
               <div className="flex gap-5 flex-wrap">
                 <img
-                  src={profile.image}
+                  src={profile.Image}
                   alt="Profile"
                   className="w-48 h-48 rounded-xl object-cover"
                 />
@@ -205,7 +205,7 @@ const SpotsGallery = () => {
             {cardsData.map((card, index) => (
               <article key={index} className="w-96">
                 <img
-                  src={card.image}
+                  src={card.Image}
                   alt={card.title}
                   className="w-full h-96 object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity"
                   onClick={() => openImageModal(card)}
@@ -262,9 +262,9 @@ const SpotsGallery = () => {
           />
           <input
             type="file"
-            accept="image/*"
+            accept="Image/*"
             onChange={(e) =>
-              setEditForm((prev) => ({ ...prev, image: e.target.files[0] }))
+              setEditForm((prev) => ({ ...prev, Image: e.target.files[0] }))
             }
             className="w-full p-3 border border-gray-300 rounded-lg text-base"
           />
@@ -296,9 +296,9 @@ const SpotsGallery = () => {
           />
           <input
             type="file"
-            accept="image/*"
+            accept="Image/*"
             onChange={(e) =>
-              setNewPostForm((prev) => ({ ...prev, image: e.target.files[0] }))
+              setNewPostForm((prev) => ({ ...prev, Image: e.target.files[0] }))
             }
             className="w-full p-3 border border-gray-300 rounded-lg text-base"
           />
@@ -316,7 +316,7 @@ const SpotsGallery = () => {
         {selectedImage && (
           <div className="text-center">
             <img
-              src={selectedImage.image}
+              src={selectedImage.Image}
               alt={selectedImage.title}
               className="w-full max-w-md rounded-xl mb-4"
             />
