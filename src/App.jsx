@@ -5,7 +5,7 @@ import Image3 from "./assets/Image3.png";
 import Image4 from "./assets/Image4.png";
 import Image5 from "./assets/Image5.png";
 import Image6 from "./assets/Image6.png";
-import avatar from "./assets/avatar.png";
+import Avatar from "./assets/Avatar.png";
 import { Heart } from "lucide-react";
 
 const SpotsGallery = () => {
@@ -48,7 +48,7 @@ const SpotsGallery = () => {
     name: "Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu Badara Akon...",
     description:
       "Known mononymously as Akon (/ˈeɪkɒn/), is a Senegalese-American singer, record producer, and entrepreneur. An influential figure in modern world...",
-    Image:  avatar ,
+    Image:  Avatar ,
   });
 
   
